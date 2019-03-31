@@ -5,22 +5,36 @@
     <title>LAHacks</title>
   </head>
   <body>
-    <form action="/twilio/messages">
-      <input id="Check temperatures" type="submit" value="Check Pets"/>
+    <form>
+      <input id="CheckTemperatures" type="button" value="Check Pets"/>
     </form>
     <br />
     <form action="/twilio/messages">
-      <input id="Check temperatures" type="submit" value="Check Food"/>
+      <input id="CheckTemperatures2" type="submit" value="Check Food"/>
     </form>
     <div class="container">
-  <fieldset>
-    <form action="/" method="post">
-      <input name="city" type="text" class="ghost-input" placeholder="Enter a City" required>
-      <input type="submit" class="ghost-button" value="Get Weather">
-    </form>
-  </fieldset>
-</div>
+      <div id="location"></div>
+    </div>
 
 
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+
+       window.onload = function(){
+         debugger;
+         document.getElementById("CheckTemperatures").onclick = function(){
+           axios.get('/location')
+                .then(function(res){
+                  var location = res.data.data;
+                  document.getElementById("location").innerHTML = JSON.stringify(location);
+
+                  console.log(location);
+                })
+                .catch(function(error) {
+                  console.log(error);
+                });
+         }
+       }
+    </script>
   </body>
 </html>
