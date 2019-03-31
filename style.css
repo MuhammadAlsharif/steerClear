@@ -1,0 +1,71 @@
+body {
+    background-color:rgba(196,196,196,0.2);
+    text-align: center;
+}
+
+#buttons {
+  margin-top: 10%
+}
+.space {
+  height: 30vh;
+}
+
+#CheckTemperatures {
+    border-radius: 8px;
+    margin: 0 auto;
+    height:10vh;
+    width: 30%;
+    font-size: 2em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'Poppins', sans-serif;
+    border-color: transparent;
+
+     background-color: rgb(138,172,184);
+    background-image:
+    linear-gradient(
+      to top right,
+      rgb(93,137,153), #baced5
+    );
+}
+
+#CheckTemperatures2 {
+    /* border-radius: 50%; */
+
+    border-radius: 8px;
+    height:10vh;
+    width: 30%;
+    color: white;
+    font-size: 2em;
+    margin-bottom: 2%;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'Poppins', sans-serif;
+         background-color: rgb(138,172,184);
+  background-image:
+    linear-gradient(
+      to top right,
+      rgb(93,137,153), #baced5
+    );
+    border-color: transparent;
+}
+
+#stopButton {
+
+  border-radius: 8px;
+  height:10vh;
+  width: 30%;
+  color: black;
+  font-size: 2em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: 'Poppins', sans-serif;
+       background-color: rgb(138,172,184);
+   background-image:
+  linear-gradient(
+    to top right,
+    rgb(93,137,153), #baced5
+  );
+  border-color: transparent;
+
+}

@@ -3,14 +3,21 @@
   <head>
     <meta charset="utf-8">
     <title>LAHacks</title>
+    <link type="text/css" href="style.css" rel="stylesheet" />
   </head>
   <body>
+    <div class="space">
+      
+    </div>
     <form>
       <input id="CheckTemperatures" type="button" value="Check Pets"/>
     </form>
     <br />
     <form action="/twilio/messages">
       <input id="CheckTemperatures2" type="submit" value="Check Food"/>
+    </form>
+    <form>
+      <input onclick="stopMes()"id="stopButton" type="submit" value="Stop SMS"/>
     </form>
     <div class="container">
       <div id="location"></div>
@@ -19,6 +26,13 @@
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
+
+      function stopMes(){
+        axios.get('/stop')
+              .then(function(res){
+                alert('SMS stopped');
+              }).catch(e=>console.log(e))
+      }
 
        window.onload = function(){
          debugger;

@@ -2,11 +2,14 @@
 const cors = require('cors');
 const express = require('express');
 const smartcar = require('smartcar');
-const get_weather = require('./test')
+const {first_weather,get_weather} = require('./test');
+
+
 
 const app = express()
   .use(cors());
 const port = 3000;
+app.use(express.static(__dirname));
 
 const client = new smartcar.AuthClient({
   clientId: 'd5a401e2-cac3-4c1c-b3c0-0a9d073c1ee7',
@@ -18,6 +21,8 @@ const client = new smartcar.AuthClient({
 
 // global variable to save our accessToken
 let access;
+
+var timer;
 
 app.get('/', function(req,res){
   res.sendfile('index.html');
@@ -69,6 +74,13 @@ app.get('/vehicle', function(req, res) {
     });
 });
 
+app.get('/stop', function(req,res){
+if (timer){
+  clearInterval(timer);
+}
+res.send('');
+});
+
 app.get('/location', async function(req,res){
 
 // List all vehicles associated with this access token
@@ -79,9 +91,12 @@ const vehicle = new smartcar.Vehicle(vehicles[0], access.accessToken);
 
 // Fetch the vehicle's location
 const location = await vehicle.location();
+if (timer){
+  clearInterval(timer);
+}
 console.log(location);
-get_weather(location.data.latitude, location.data.longitude);
-
+first_weather(location.data.latitude, location.data.longitude);
+timer = setInterval(()=>get_weather(location.data.latitude, location.data.longitude),60000);
 res.send(location);
 //console.log(location);
 }
