@@ -1,0 +1,19 @@
+{
+  "name": "lahacks",
+  "version": "1.0.0",
+  "description": "laHacksProject",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm install express --save"
+  },
+  "repository": {
+    "type": "git",
+    "url": "mhpoblet"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "twilio": "^3.30.0"
+  }
+}
