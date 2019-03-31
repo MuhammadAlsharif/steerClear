@@ -6,8 +6,21 @@
   </head>
   <body>
     <form action="/twilio/messages">
-      <input id="Check temperatures" type="submit"/>
+      <input id="Check temperatures" type="submit" value="Check Pets"/>
     </form>
+    <br />
+    <form action="/twilio/messages">
+      <input id="Check temperatures" type="submit" value="Check Food"/>
+    </form>
+    <div class="container">
+  <fieldset>
+    <form action="/" method="post">
+      <input name="city" type="text" class="ghost-input" placeholder="Enter a City" required>
+      <input type="submit" class="ghost-button" value="Get Weather">
+    </form>
+  </fieldset>
+</div>
+
 
   </body>
 </html>
