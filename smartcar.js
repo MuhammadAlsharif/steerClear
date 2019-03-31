@@ -2,6 +2,7 @@
 const cors = require('cors');
 const express = require('express');
 const smartcar = require('smartcar');
+const get_weather = require('./test')
 
 const app = express()
   .use(cors());
@@ -78,7 +79,11 @@ const vehicle = new smartcar.Vehicle(vehicles[0], access.accessToken);
 
 // Fetch the vehicle's location
 const location = await vehicle.location();
+console.log(location);
+get_weather(location.data.latitude, location.data.longitude);
+
 res.send(location);
+//console.log(location);
 }
 
 )
